@@ -65,7 +65,7 @@ const fetchAbsenceSubmissions = async (role: 'admin' | 'teacher' | 'student', us
             id: item._id || item.id,
         }));
         if (role === 'student' && userId) {
-            return mapped.filter((sub: any) => sub.student._id === userId);
+            return mapped.filter((sub: any) => sub.student && sub.student._id === userId);
         }
         return mapped;
     } catch (error) {
